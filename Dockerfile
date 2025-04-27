@@ -1,6 +1,6 @@
 FROM alpine:3.20
 ENTRYPOINT ["/sbin/tini","--","/usr/local/searxng/dockerfiles/docker-entrypoint.sh"]
-EXPOSE 8088
+EXPOSE 8080
 VOLUME /etc/searxng
 
 ARG SEARXNG_GID=977
@@ -12,7 +12,7 @@ RUN addgroup -g ${SEARXNG_GID} searxng && \
 ENV INSTANCE_NAME=searxng \
     AUTOCOMPLETE= \
     BASE_URL= \
-    BIND_ADDRESS=[::]:8088 \
+    BIND_ADDRESS=[::]:8080 \
     MORTY_KEY= \
     MORTY_URL= \
     SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml \
